@@ -1,4 +1,5 @@
 import java.time.LocalDate;
+import java.time.Month;
 import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Locale;
@@ -15,14 +16,10 @@ public class Main {
 
         // Extract year, month, and day from the short date
         int year = shortDate.getYear();
-        int month = shortDate.getMonthValue();
+        Month month = shortDate.getMonth();
         int day = shortDate.getDayOfMonth();
 
-        // Convert month number to month name
-        String monthName = shortDate.getMonth().getDisplayName(TextStyle.FULL, Locale.ENGLISH);
-
-        // Display the full date representation
-        String fullDate = monthName + " " + day + ", " + year;
-        System.out.println("Full date representation: " + fullDate);
+        String fullDate = String.format("%s %02d, %d", month, day, year);
+        System.out.println("Full Date Representation: " + fullDate);
     }
 }
